@@ -1,8 +1,11 @@
-import React from 'react'
-
+import Navbar from './../components/Navbar'
+import WidgetList from '../components/WidgetList'
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <Navbar/>
+      <WidgetList/>
+    </div>
   )
 }
 
