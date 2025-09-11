@@ -16,7 +16,7 @@ function WidgetList() {
         {Object.values(categories).map((catName,i)=>(
           <h2 className="text-black text-sm font-bold" key={i}>
             {catName}
-            <ul className="flex flex-wrap bg-[#d5dae1] px-2 py-1 rounded-2xl">
+            <ul className="flex flex-wrap  bg-[#d5dae1] px-2 py-1 rounded-2xl">
                {categoriesData[catName].map((widget)=>(
                  <li key={widget.id}>
                     <Widget widget={widget} />
