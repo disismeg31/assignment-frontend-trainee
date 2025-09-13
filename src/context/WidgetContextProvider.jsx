@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState} from "react";
 
 export const widgetContext = createContext();
 
@@ -36,7 +36,7 @@ function WidgetContextProvider({ children }) {
       name: widgetToAdd,
       isVisible: true,
     };
-    setCategoriesData((c) => ({
+    setFilteredData((c) => ({
       ...c,
       [category]: [...c[category], newWidget],
     }));
@@ -55,6 +55,22 @@ function WidgetContextProvider({ children }) {
     console.log("handleRemoveWidget")
   };
 
+   
+  const handleShowWidget = (category, widgetId,isVisible) => {
+
+    setCategoriesData((c) => {
+    const updated = {
+      ...c,
+      [category]: c[category].map((w) =>
+        w.id === widgetId ? { ...w, isVisible } : w
+      ),
+    };
+    setFilteredData(updated); // propagate to filteredData
+    return updated;
+  });
+};
+
+ 
   const handleSearch = (searchtext) => {
     if (!searchtext.trim()) {
       setFilteredData(categoriesData);
@@ -73,6 +89,7 @@ function WidgetContextProvider({ children }) {
     }, {});
 
     setFilteredData(filtered);
+
   };
 
   const value = {
@@ -81,6 +98,7 @@ function WidgetContextProvider({ children }) {
     setCategoriesData,
     handleAddWidget,
     handleRemoveWidget,
+    handleShowWidget,
     text,
     setText,
     searchText,

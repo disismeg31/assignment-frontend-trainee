@@ -3,7 +3,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { widgetContext } from "../context/widgetContextProvider";
 function Navbar() {
   const {handleSearch,searchText,setSearchText} = useContext(widgetContext);
-
    
   return (
     <div className="flex p-4 h-10 bg-[#ffffff] justify-between items-center">
