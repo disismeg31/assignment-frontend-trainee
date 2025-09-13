@@ -1,9 +1,9 @@
 import Widget from "./Widget"
 import { useContext } from "react";
-import { widgetContext } from "../context/widgetContextProvider";
+import { widgetContext } from "./../context/WidgetContextProvider";
 import WidgetAdd from "./WidgetAdd";
 function WidgetList() {
-  const {categories,categoriesData,handleAddWidget} = useContext(widgetContext);
+  const {categories,categoriesData,filteredData} = useContext(widgetContext);
   return (
     <div className="p-6 flex flex-col">
 
@@ -17,13 +17,18 @@ function WidgetList() {
           <h2 className="text-black text-sm font-bold" key={i}>
             {catName}
             <ul className="flex flex-wrap  bg-[#d5dae1] px-2 py-1 rounded-2xl">
-               {categoriesData[catName].map((widget)=>(
+              {/* 
+               {categoriesData[catName].map((widget)=> widget.isVisible 
+               */}
+               {filteredData[catName]?.map((widget)=> widget.isVisible 
+               && (
                  <li key={widget.id}>
-                    <Widget widget={widget} />
+                    <Widget categoryName={catName} widget={widget} />
                   </li>
-               ))}
+               )
+               )}
                <li>
-                <WidgetAdd onAdd={() => handleAddWidget(catName)} />
+                <WidgetAdd categoryName={catName}/>
               </li>
             </ul>
           </h2>

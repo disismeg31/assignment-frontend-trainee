@@ -1,7 +1,8 @@
 import {useState}from "react";
 import Modal from "./Modal";
-
-function WidgetAdd() {
+ 
+function WidgetAdd({categoryName}) {
+   
   const [isOpen,setIsOpen] = useState(false);
   const handleCloseModal = ()=>{
     setIsOpen(false)
@@ -14,7 +15,7 @@ function WidgetAdd() {
         className="bg-[#ffffff] px-2 py-1 rounded-md font-normal text-gray-500 border-2 border-gray-300 flex items-center  h-8 hover:cursor-pointer">
           Add Widget +
         </button>
-        <Modal onClose={handleCloseModal} open={isOpen}></Modal>
+        <Modal categoryName={categoryName} onClose={handleCloseModal} open={isOpen}></Modal>
       </div>
     </div>
   );
