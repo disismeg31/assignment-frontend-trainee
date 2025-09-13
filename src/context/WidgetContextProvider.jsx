@@ -44,7 +44,7 @@ function WidgetContextProvider({ children }) {
   };
 
   const handleRemoveWidget = (category, id) => {
-    setCategoriesData((c) => ({
+    setFilteredData((c) => ({
       ...c,
       [category]: [
         ...c[category].map((widget) =>
@@ -52,6 +52,7 @@ function WidgetContextProvider({ children }) {
         ),
       ],
     }));
+    console.log("handleRemoveWidget")
   };
 
   const handleSearch = (searchtext) => {
