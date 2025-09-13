@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { widgetContext } from "../context/widgetContextProvider";
+import { widgetContext } from "../context/WidgetContextProvider";
 function Navbar() {
   const {handleSearch,searchText,setSearchText} = useContext(widgetContext);
    
